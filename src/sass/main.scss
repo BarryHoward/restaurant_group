@@ -24,14 +24,26 @@
 
 .news {
   border: 1px solid grey;
+  width: 400px;
+  height: 300px;
+}
+
+.news-post {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .speacial {
   border: 1px solid grey;
+  width: 300px;
+
 }
 
 .map {
   border: 1px solid grey;
+  width: 300px;
+
 }
 
 .tabs {
