@@ -8,7 +8,7 @@ function addMap(key){
 }
 
 function populateNews(results){
-	var newsHtml = 
+	var newsHtml =
 	`
 	<p class="latest-news">Latest News</p>
 	<span class="news-title">${results.title}</span><span class="news-date">${results.date_published}</span>
