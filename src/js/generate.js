@@ -11,7 +11,7 @@ function populateNews(results){
 	var newsHtml =
 	`
 	<p class="latest-news">Latest News</p>
-	<div class="first line">
+	<div class="first-line">
 		<span class="news-title">${results.title}</span><span class="news-date">${results.date_published}</span>
 	</div>
 	<p class="news-post">${results.post}</p>
