@@ -38,10 +38,12 @@ function populateNews(results){
 // Menu Functions
 // -----------------------------------------------------
 function getMenu(){
-	var data = $.ajax({
+	var menuData = $.ajax({
 		url: "https://json-data.herokuapp.com/restaurant/menu/1"
 	})
-	data.then(populateMenu);
+	menuData.then(populateMenu);
+	menuData.then(getSpecial);
+
 }
 
 function populateMenu(results){
@@ -53,9 +55,9 @@ function populateMenu(results){
 		for (var i = 0; i < 4; i++){
 			var menuHtml =
 			`	<div>
-				<span>${results[curKey][i].item}</span>
-				<span>${results[curKey][i].price}</span>
-				<p>${results[curKey][i].description}</p>
+					<span>${results[curKey][i].item}</span>
+					<span>${results[curKey][i].price}</span>
+					<p>${results[curKey][i].description}</p>
 				</div>
 			`
 			$(`#${curKey}`).append(menuHtml);
@@ -64,5 +66,40 @@ function populateMenu(results){
 };
 
 // all this fancy code that Barry taught me :D
+
+// Specials Code
+// -------------------------------------------------------
+
+function getSpecial(menuResults){
+	var specialData = $.ajax({
+		url: "https://json-data.herokuapp.com/restaurant/special/1"
+	});
+	specialData.then(function(specialResults){
+		var keyList = Object.keys(menuResults);
+		for (var i=0; i<keyList.length; i++){
+			var curKey = keyList[i];
+			for(var j=0; j<menuResults[curKey].length; j++){
+				if (menuResults[curKey][j].id === specialResults.menu_item_id){
+					var specialItem = menuResults[curKey][j];
+				}
+			}
+		}
+		populateSpecial(specialItem);
+	});
+}
+
+function populateSpecial(specialItem){
+	var HTML = `
+	<p class="special-title">Today's Special</p>
+	<div class="special-image"></div>
+	<div>
+		<span>${specialItem.item}</span>
+		<span>${specialItem.price}</span>
+		<p>${specialItem.description}</p>
+	</div>
+	`
+	$(".special").html(HTML);
+
+}
 
 export {addMap, getNews, getMenu};
