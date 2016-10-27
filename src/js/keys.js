@@ -1,3 +1,7 @@
 var GMAPS_KEY = "AIzaSyDgHG7eIe9ZL_IAjZuy0ZkqDe6nBdiG03Q";
+var FLICKR_KEY = "926764418de212677ccc5fa33cb76bf9";
 
-export {GMAPS_KEY};
+// Secret:
+// 25f937cc2f4fe845
+
+export {GMAPS_KEY, FLICKR_KEY};
