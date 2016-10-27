@@ -10,4 +10,6 @@ data.then(populateNews);
 
 addMap(GMAPS_KEY);
 
-getFlickr(3605614481, ".photo");
+getFlickr(30574698245, ".foodPhotos");
+getFlickr(30574698245, ".foodPhotos");
+getFlickr(30574698245, ".foodPhotos");
