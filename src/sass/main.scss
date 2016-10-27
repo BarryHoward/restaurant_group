@@ -2,66 +2,84 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  justify-content: center;
+
+}
+
 .container {
+  display: flex;
+  flex-direction: column;
+  // flex-flow: row wrap;
+  // justify-content: space-around;
   border: 1px solid grey;
-}
+  width: 80%;
 
-.logo {
-  border: 1px solid grey;
-}
 
-.socialMedia {
-  border: 1px solid grey;
-  display: inline-block;
-}
+  .logo {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid grey;
+    .socialMedia {
+      border: 1px solid grey;
+    }
+  }
 
-// .photo {
-// }
+  .threeBoxes {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid red;
+    .news {
+      border: 1px solid grey;
+      width: 300px;
+      height: 250px;
 
-.threeBoxes {
-  border: 1px solid red;
-}
+    }
+    .special {
+      border: 1px solid grey;
+      width: 300px;
+      height: 250px;
 
-.news {
-  border: 1px solid grey;
-  width: 400px;
-  height: 300px;
-}
+    }
+    .map {
+      border: 1px solid grey;
+      width: 300px;
+      height: 250px;
 
-.news-post {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-}
+    }
+  }
 
-.speacial {
-  border: 1px solid grey;
-  width: 300px;
+  .tabs {
+    border: 1px solid green;
+    display: flex;
+    flex-direction: row;
 
-}
+    .story {
+      border: 1px solid grey;
+      width: 500px;
+      height: 500px;
+    }
 
-.map {
-  border: 1px solid grey;
-  width: 300px;
+    .menu {
+      border: 1px solid grey;
+      width: 500px;
+      height: 500px;
 
-}
+    }
 
-.tabs {
-  border: 1px solid red;
-}
+    .reservations {
+      border: 1px solid grey;
+      width: 500px;
+      height: 500px;
 
-.story {
-  border: 1px solid grey;
-}
+    }
+  }
 
-.menu {
-  border: 1px solid grey;
-}
+  .foodPhotos {
+    width: 100px;
+    height: 500px;
 
-.reservations {
-  border: 1px solid grey;
-}
-
-.foodPhotos {
+  }
 
 }
