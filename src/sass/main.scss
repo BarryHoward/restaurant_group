@@ -5,81 +5,85 @@
 body {
   display: flex;
   justify-content: center;
-
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  // flex-flow: row wrap;
-  // justify-content: space-around;
   border: 1px solid grey;
   width: 80%;
-
-
-  .logo {
+  .logo-left {
     display: flex;
     justify-content: space-between;
     border: 1px solid grey;
-    .socialMedia {
+    .logo-right {
       border: 1px solid grey;
     }
   }
 
   .threeBoxes {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     border: 1px solid red;
     .news {
       border: 1px solid grey;
       width: 300px;
       height: 250px;
-
+      display: flex;
+      flex-direction: column;
+      .first-line {
+      display: flex;
+      justify-content: space-between;
+      }
+      .news-post {
+      display: -webkit-box;
+      -webkit-line-clamp: 8;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      }
     }
     .special {
       border: 1px solid grey;
       width: 300px;
       height: 250px;
-
     }
     .map {
       border: 1px solid grey;
       width: 300px;
       height: 250px;
-
     }
   }
-
-  .tabs {
-    border: 1px solid green;
+  section {
     display: flex;
-    flex-direction: row;
-
-    .story {
-      border: 1px solid grey;
-      width: 500px;
-      height: 500px;
+    justify-content: space-around;
+    .tabs {
+      border: 1px solid green;
+      width: 70%;
+      display: flex;
+      flex-direction: row;
+      .story {
+        border: 1px solid grey;
+        width: 100%;
+        height: 500px;
+        // display: none;
+      }
+      .menu {
+        border: 1px solid grey;
+        width: 100%;
+        height: 500px;
+        display: none;
+      }
+      .reservations {
+        border: 1px solid grey;
+        width: 100%;
+        height: 500px;
+        display: none;
+      }
     }
-
-    .menu {
-      border: 1px solid grey;
-      width: 500px;
+    .foodPhotos {
+      border: 1px solid pink;
+      width: 100px;
       height: 500px;
-
-    }
-
-    .reservations {
-      border: 1px solid grey;
-      width: 500px;
-      height: 500px;
-
     }
   }
-
-  .foodPhotos {
-    width: 100px;
-    height: 500px;
-
-  }
-
 }
