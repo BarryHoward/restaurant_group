@@ -19,9 +19,12 @@ function populateNews(results){
 	$(".news").html(newsHtml);
 };
 
-function generateFlickr(result){
-	console.log(result);
-	console.log(eval(result));
+function generateFlickr(result, containerString){
+	var properResult = JSON.parse(result.slice(14, result.length-1));
+	var photo = properResult.photo;
+	var photoURL = 'http://farm' + photo.farm + '.static.flickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '_m.jpg';
+	$(containerString).append(`<img src=${photoURL}>`);
+
 }
 
 export {addMap, populateNews, generateFlickr};
