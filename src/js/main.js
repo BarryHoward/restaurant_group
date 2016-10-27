@@ -1,14 +1,11 @@
-import {getNews, getFlickr} from "./getApi.js";
-import {addMap, populateNews} from "./generate.js";
-import {GMAPS_KEY} from "./keys.js";
+import {getNews, addMap} from "./otherAPI.js";
+import {getFlickr} from "./flickr.js"
+
 import $ from "jquery";
 
-var data = getNews();
+getNews();
 
-data.then(populateNews);
-
-
-addMap(GMAPS_KEY);
+addMap();
 
 getFlickr(30574698245, ".foodPhotos");
 getFlickr(30574698245, ".foodPhotos");

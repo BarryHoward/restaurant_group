@@ -1,14 +1,6 @@
-import $ from "jquery"
+import $ from "jquery";
 import {FLICKR_KEY} from "./keys.js"
-import {generateFlickr} from "./generate.js"
 
-
-function getNews(){
-	var data = $.ajax({
-		url: "https://json-data.herokuapp.com/restaurant/news/1"
-	})
-	return data;
-}
 
 function getFlickr(photoId, containerString){
 	var base = "https://api.flickr.com/services/rest/";
@@ -29,4 +21,12 @@ function getFlickr(photoId, containerString){
 	});
 }
 
-export {getNews, getFlickr};
+function generateFlickr(result, containerString){
+	var properResult = JSON.parse(result.slice(14, result.length-1));
+	var photo = properResult.photo;
+	var photoURL = 'http://farm' + photo.farm + '.static.flickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '_m.jpg';
+	$(containerString).append(`<img src=${photoURL}>`);
+
+}
+
+export {getFlickr};

@@ -1,10 +1,25 @@
 import $ from "jquery";
+import {GMAPS_KEY} from "./keys.js";
 
-function addMap(key){
+// Map Function
+// ----------------------------------------
+
+function addMap(){
+	var key = GMAPS_KEY;
 	var gMapsHTML = `
 	<iframe class="google-map" width="300" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ-wJ18oMD9YgR-YiYMGQyDC8&key=${key}" allowfullscreen></iframe>
 `
 	$(".map").html(gMapsHTML);
+}
+
+
+// News Functions 
+// --------------------------------------------------
+function getNews(){
+	var data = $.ajax({
+		url: "https://json-data.herokuapp.com/restaurant/news/1"
+	})
+	data.then(populateNews);
 }
 
 function populateNews(results){
@@ -19,12 +34,4 @@ function populateNews(results){
 	$(".news").html(newsHtml);
 };
 
-function generateFlickr(result, containerString){
-	var properResult = JSON.parse(result.slice(14, result.length-1));
-	var photo = properResult.photo;
-	var photoURL = 'http://farm' + photo.farm + '.static.flickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '_m.jpg';
-	$(containerString).append(`<img src=${photoURL}>`);
-
-}
-
-export {addMap, populateNews, generateFlickr};
+export {addMap, getNews};
