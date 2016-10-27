@@ -13,11 +13,17 @@ function getFlickr(){
 	var base = "https://api.flickr.com/services/rest/";
 	var method = "flickr.photos.getInfo"
 	var photoID = 2177060015;
-	var urlString = `${base}?method=${method}&api_key=${FLICKR_KEY}&photo_id=${photoID}&format=json`;
+
 	// console.log(urlString);
 
 	var data = $.ajax({
-		url: urlString
+		url: "https://api.flickr.com/services/rest/",
+		data: {
+			method: method,
+			api_key: FLICKR_KEY,
+			photo_id: photoID,
+			format: "json"
+		}
 	})
 	return data;
 }

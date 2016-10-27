@@ -12,4 +12,4 @@ addMap(GMAPS_KEY);
 
 var flickr_data =  getFlickr();
 console.log(flickr_data);
-flickr_data.then(generateFlickr(flickr_data));
+flickr_data.then(generateFlickr);

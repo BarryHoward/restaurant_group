@@ -21,6 +21,7 @@ function populateNews(results){
 
 function generateFlickr(result){
 	console.log(result);
+	console.log(eval(result));
 }
 
 export {addMap, populateNews, generateFlickr};
