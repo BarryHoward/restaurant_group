@@ -48,19 +48,22 @@ function getMenu(){
 
 function populateMenu(results){
 	var keys = Object.keys(results)
-	// console.log(keys)
 	for (var j=0; j<3; j++){
 		var curKey = keys[j];
-		$(".menu").append(`<div id="${curKey}"}><p>${curKey}</p></div>`);
+		$(".menu").append(`<div class="course-box" id="${curKey}"}><p>${curKey}</p></div>`);
 		for (var i = 0; i < 4; i++){
 			var menuHtml =
-			`	<div>
+			`	<div class="menu-item" id="${curKey}${i}">
 					<span>${results[curKey][i].item}</span>
 					<span>${results[curKey][i].price}</span>
 					<p>${results[curKey][i].description}</p>
 				</div>
 			`
 			$(`#${curKey}`).append(menuHtml);
+			var iconsHtml = `
+			<span>
+			`
+			$(`#${curKey}{i}`).append(iconsHtml);
 		}
 	}
 };
