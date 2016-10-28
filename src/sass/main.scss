@@ -186,3 +186,16 @@ body {
     margin-bottom: 20px;
   }
 }
+
+
+.special-image > img {
+  max-height: 100px;
+  margin-left: 70px;
+}
+
+.foodPhotos {
+  display: flex;
+  .foodPhotos > img {
+    max-height: 50%;
+  }
+}

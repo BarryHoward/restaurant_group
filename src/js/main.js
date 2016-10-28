@@ -23,10 +23,12 @@ function openTab(event){
 }
 
 getFlickr(8012453328, ".photo");
-// getFlickr(16207267976, ".photo");
-getFlickr(30574698245, ".foodPhotos");
-getFlickr(30574698245, ".foodPhotos");
-getFlickr(30574698245, ".foodPhotos");
+getFlickr(5483708730, ".special-image");
+getFlickr(8619961752, ".foodPhotos");
+getFlickr(1863297923, ".foodPhotos");
+getFlickr(15100116960, ".foodPhotos");
+getFlickr(15160949480, ".foodPhotos");
+getFlickr(3360793849, ".foodPhotos");
 
 function populateReservations(){
 	var reservationsHtml =
