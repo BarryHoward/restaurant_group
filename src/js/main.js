@@ -22,8 +22,8 @@ function openTab(event){
 	}
 }
 
-
-getFlickr(16207267976, ".photo");
+getFlickr(8012453328, ".photo");
+// getFlickr(16207267976, ".photo");
 getFlickr(30574698245, ".foodPhotos");
 getFlickr(30574698245, ".foodPhotos");
 getFlickr(30574698245, ".foodPhotos");
