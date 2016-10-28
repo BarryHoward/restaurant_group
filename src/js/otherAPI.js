@@ -48,6 +48,7 @@ function getMenu(){
 
 function populateMenu(results){
 	var keys = Object.keys(results)
+
 	for (var j=0; j<3; j++){
 		var curKey = keys[j];
 		$(".menu").append(`<div class="course-box" id="${curKey}"}><p>${curKey}</p></div>`);
@@ -61,9 +62,16 @@ function populateMenu(results){
 			`
 			$(`#${curKey}`).append(menuHtml);
 			var iconsHtml = `
-			<span>
-			`
-			$(`#${curKey}{i}`).append(iconsHtml);
+				<div class="menu-icon-container">
+					<i class="fa fa-exclamation" aria-hidden="true"></i>
+					<i class="fa fa-star-o" aria-hidden="true"></i>
+					<i class="fa fa-fire" aria-hidden="true"></i>
+					<i class="fa fa-vine" aria-hidden="true"></i>
+				</div>
+				`
+			console.log(`#${curKey}${i}`);
+			console.log(iconsHtml)
+			$(`#${curKey}${i}`).append(iconsHtml);
 		}
 	}
 };
