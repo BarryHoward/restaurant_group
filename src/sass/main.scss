@@ -7,9 +7,47 @@ a {
   text-decoration: none;
 }
 
+.item-description{
+  display: inline-block;
+  width: 60%;
+  margin: 0px;
+}
+.menu-icon-container{
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+}
+
+.menu-item{
+  margin-bottom: 20px;
+}
+
 .fa{
   color: black;
+  position: relative;
+
+  .icon-info-box{
+    border: 1px solid lightgrey;
+    position: absolute;
+    top: -100px;
+    right: -200px;
+    z-index: 10;
+    background: white;
+    display: none;
+    height: 100px;
+    overflow:hidden;
+    width: 200px;
+
+  }
 }
+
+.fa:hover{
+  .icon-info-box{
+    display: block;
+  }
+}
+
+
 
 body {
   display: flex;

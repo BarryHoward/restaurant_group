@@ -57,7 +57,8 @@ function populateMenu(results){
 			`	<div class="menu-item" id="${curKey}${i}">
 					<span>${results[curKey][i].item}</span>
 					<span>${results[curKey][i].price}</span>
-					<p>${results[curKey][i].description}</p>
+					<br>
+					<p class="item-description">${results[curKey][i].description}</p>
 				</div>
 			`
 			$(`#${curKey}`).append(menuHtml);
@@ -73,7 +74,6 @@ function populateMenu(results){
 
 function makeIconInfo(iconName, foodParam, value){
 	if (foodParam === "allergies"){
-
 		var titleHTML = "<span>Allergy Info</span>";
 		if (value===1){
 			var descriptionHTML = "<p>This food has killed people</p>";
@@ -82,7 +82,6 @@ function makeIconInfo(iconName, foodParam, value){
 		}
 		var innerHTML = titleHTML + descriptionHTML;
 	} else if (foodParam === "favorite"){
-
 		var titleHTML = "<span>Favorite Info</span>";
 		if (value===1){
 			var descriptionHTML = "<p>Tales have been spread of this dish's deliciousness.</p>";
@@ -90,9 +89,7 @@ function makeIconInfo(iconName, foodParam, value){
 			var descriptionHTML = "<p>Nobody likes this dish, but who says you aren't special?</p>"
 		}
 		var innerHTML = titleHTML + descriptionHTML;
-
 	} else if (foodParam === "spicy"){
-
 		var titleHTML = "<span>Spicy Info</span>";
 		if (value===1){
 			var descriptionHTML = "<p>Might want to wash this down with seawater</p>";
@@ -100,7 +97,6 @@ function makeIconInfo(iconName, foodParam, value){
 			var descriptionHTML = "<p>Mild food for mild men</p>"
 		}
 		var innerHTML = titleHTML + descriptionHTML;
-
 	} else if (foodParam === "vegan"){
 		var titleHTML = "<span>Vegan Info</span>";
 		if (value===1){
@@ -112,9 +108,10 @@ function makeIconInfo(iconName, foodParam, value){
 	}
 	var iconHTML = `
 	<i class="fa ${iconName}" aria-hidden="true">
-	<div class="icon-info-box">
-		${innerHTML}
-	</div></i>
+		<div class="icon-info-box">
+			${innerHTML}
+		</div>
+	</i>
 	`;
 	return iconHTML;
 }
