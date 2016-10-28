@@ -65,7 +65,7 @@ function populateMenu(results){
 				<div class="menu-icon-container">
 					<i class="fa fa-exclamation" aria-hidden="true"></i>
 					<i class="fa fa-star-o" aria-hidden="true"></i>
-					<i class="fa fa-fire" aria-hidden="true"></i>
+					<i class="fa fa-fire-extinguisher" aria-hidden="true"></i>
 					<i class="fa fa-vine" aria-hidden="true"></i>
 				</div>
 				`
