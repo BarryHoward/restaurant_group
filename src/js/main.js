@@ -11,11 +11,15 @@ getMenu();
 
 $(".tab-button").click(openTab);
 
+var currentOpen = ".story";
 function openTab(event){
 	var target = event.target;
 	var buttonValue = $(target).attr('id').split("-")[0];
-	console.log(`.${buttonValue}`)
-	$(`.${buttonValue}`).toggleClass("invisible");
+	if (buttonValue !== currentOpen){
+		$(currentOpen).toggleClass("invisible");
+		$(`.${buttonValue}`).toggleClass("invisible");
+		currentOpen = `.${buttonValue}`;
+	}
 }
 
 
