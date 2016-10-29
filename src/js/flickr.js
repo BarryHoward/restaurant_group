@@ -26,9 +26,8 @@ function generateFlickr(result, containerString){
 	var properResult = JSON.parse(result.slice(14, result.length-1));
 	var photo = properResult.sizes.size[properResult.sizes.size.length-1];
 	var photoURL = photo.source;
-	
-	// var photoURL = 'http://farm' + photo.farm + '.static.flickr.com/' + photo.server + '/' + photo.id + '_' + photo.secret + '_m.jpg';
-	$(containerString).append(`<img src=${photoURL}>`);
+	var photoHTML = `<img src=${photoURL}>`;
+	$(containerString).append(photoHTML);
 
 }
 

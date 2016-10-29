@@ -1,5 +1,6 @@
 import $ from "jquery";
 import {GMAPS_KEY} from "./keys.js";
+import {getFlickr} from "./flickr.js"
 
 // Map Function
 // ----------------------------------------
@@ -7,7 +8,7 @@ import {GMAPS_KEY} from "./keys.js";
 function addMap(){
 	var key = GMAPS_KEY;
 	var gMapsHTML = `
-	<iframe class="google-map" width="300" height="250" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ-wJ18oMD9YgR-YiYMGQyDC8&key=${key}" allowfullscreen></iframe>
+	<iframe class="google-map" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJEWSIMvT92IgRSeV6GRY6Xtw&key=${key}" allowfullscreen></iframe>
 `
 	$(".map").html(gMapsHTML);
 };
@@ -106,8 +107,13 @@ function makeIconInfo(iconName, foodParam, value){
 		}
 		var innerHTML = titleHTML + descriptionHTML;
 	}
+	if (value===1){
+		var colorClass = " checked";
+	} else {
+		var colorClass = "";
+	}
 	var iconHTML = `
-	<i class="fa ${iconName}" aria-hidden="true">
+	<i class="fa ${iconName}${colorClass}" aria-hidden="true">
 		<div class="icon-info-box">
 			${innerHTML}
 		</div>
@@ -117,6 +123,46 @@ function makeIconInfo(iconName, foodParam, value){
 }
 
 // all this fancy code that Barry taught me :D
+
+
+// Reservations Code
+//---------------------------------------------------------
+
+function populateReservations(){
+	var reservationsHtml =
+		`
+		<div class = "reserve">
+			<div class = "customerName">
+				<p class = "info">Full Name</p>
+				<input class = "customerInfo" type = "text">
+			</div>
+			<div class = "guestNumber">
+				<p class = "info">Number of Guests</p>
+				<input class = "customerInfo" type = "text">
+			</div>
+			<div class = "guestDate">
+				<p class = "info">Date</p>
+				<input class = "customerInfo" type = "text">
+			</div>
+			<div class = "comments">
+				<p class = "info">Special Notes</p>
+				<textarea class = "customerInfo"></textarea>
+			</div>
+			<div class = "seating">
+				<p class = "info">Seating Preference</p>
+				<select>
+					<option>Indoor</option>
+					<option>Outdoor</option>
+				</select>
+			</div>
+			<div class = "submit">
+				<button>Reserve Table</button>
+			</div>
+		</div>
+		`
+		$(".reservations").html(reservationsHtml);
+};
+
 
 // Specials Code
 // -------------------------------------------------------
@@ -136,6 +182,7 @@ function getSpecial(menuResults){
 			}
 		}
 		populateSpecial(specialItem);
+		getFlickr(5483708730, ".special-image");
 	});
 }
 
@@ -153,4 +200,4 @@ function populateSpecial(specialItem){
 
 }
 
-export {addMap, getNews, getMenu};
+export {addMap, getNews, getMenu, populateReservations};
