@@ -57,7 +57,7 @@ function populateMenu(results){
 			var menuHtml =
 			`	<div class="menu-item" id="${curKey}${i}">
 					<span>${results[curKey][i].item}</span>
-					<span>${results[curKey][i].price}</span>
+					<span class = "price">${results[curKey][i].price}</span>
 					<br>
 					<p class="item-description">${results[curKey][i].description}</p>
 				</div>
@@ -121,8 +121,6 @@ function makeIconInfo(iconName, foodParam, value){
 	`;
 	return iconHTML;
 }
-
-// all this fancy code that Barry taught me :D
 
 
 // Reservations Code
@@ -190,11 +188,11 @@ function populateSpecial(specialItem){
 	var HTML = `
 	<p class="special-title">Today's Special</p>
 	<div class="special-image"></div>
-	<div>
-		<span>${specialItem.item}</span>
-		<span>${specialItem.price}</span>
-		<p>${specialItem.description}</p>
+	<div class = "first-line">
+		<span class = "sp-menu-item">${specialItem.item}</span>
+		<span class = "sp-menu-price">${specialItem.price}</span>
 	</div>
+	<p>${specialItem.description}</p>
 	`
 	$(".special").html(HTML);
 
