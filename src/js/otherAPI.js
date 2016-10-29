@@ -118,6 +118,46 @@ function makeIconInfo(iconName, foodParam, value){
 
 // all this fancy code that Barry taught me :D
 
+
+// Reservations Code
+//---------------------------------------------------------
+
+function populateReservations(){
+	var reservationsHtml =
+		`
+		<div class = "reserve">
+			<div class = "customerName">
+				<p class = "info">Full Name</p>
+				<input class = "customerInfo" type = "text">
+			</div>
+			<div class = "guestNumber">
+				<p class = "info">Number of Guests</p>
+				<input class = "customerInfo" type = "text">
+			</div>
+			<div class = "guestDate">
+				<p class = "info">Date</p>
+				<input class = "customerInfo" type = "text">
+			</div>
+			<div class = "comments">
+				<p class = "info">Special Notes</p>
+				<textarea class = "customerInfo"></textarea>
+			</div>
+			<div class = "seating">
+				<p class = "info">Seating Preference</p>
+				<select>
+					<option>Indoor</option>
+					<option>Outdoor</option>
+				</select>
+			</div>
+			<div class = "submit">
+			<input class="button" value="Reserve Table">
+			</div>
+		</div>
+		`
+		$(".reservations").html(reservationsHtml);
+};
+
+
 // Specials Code
 // -------------------------------------------------------
 
@@ -153,4 +193,4 @@ function populateSpecial(specialItem){
 
 }
 
-export {addMap, getNews, getMenu};
+export {addMap, getNews, getMenu, populateReservations};

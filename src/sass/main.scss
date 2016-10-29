@@ -7,21 +7,7 @@ a {
   text-decoration: none;
 }
 
-.item-description{
-  display: inline-block;
-  width: 60%;
-  margin: 0px;
-}
-.menu-icon-container{
-  display: inline-block;
-  vertical-align: top;
-  width: 20%;
-}
-
-.menu-item{
-  margin-bottom: 20px;
-}
-
+//Font Awesome Styling
 .fa{
   color: black;
   position: relative;
@@ -40,7 +26,6 @@ a {
 
   }
 }
-
 .fa:hover{
   .icon-info-box{
     display: block;
@@ -49,12 +34,35 @@ a {
 
 
 
+
+.item-description{
+  display: inline-block;
+  width: 60%;
+  margin: 0px;
+}
+.menu-icon-container{
+  display: inline-block;
+  vertical-align: top;
+  width: 20%;
+}
+
+.menu-item{
+  margin-bottom: 20px;
+}
+
+
+
+
+
 body {
   display: flex;
   justify-content: center;
+  background-image: url("https://farm6.staticflickr.com/5499/30482409785_0fc2258c4f_k.jpg");
+  background-repeat: no-repeat;
 }
 
 .container {
+  background: white;
   display: flex;
   flex-direction: column;
   border: 1px solid grey;
