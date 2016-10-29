@@ -13,7 +13,7 @@ populateReservations();
 //Place pictures
 
 getFlickr(8012453328, ".photo");
-getFlickr(5483708730, ".special-image");
+
 getFlickr(8619961752, ".foodPhotos");
 getFlickr(1863297923, ".foodPhotos");
 getFlickr(15100116960, ".foodPhotos");

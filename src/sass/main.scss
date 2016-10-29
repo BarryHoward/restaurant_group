@@ -8,6 +8,7 @@ a {
 }
 
 //Font Awesome Styling
+//----------------------------------------
 .fa{
   color: black;
   position: relative;
@@ -32,42 +33,23 @@ a {
   }
 }
 
-
-
-
-.item-description{
-  display: inline-block;
-  width: 60%;
-  margin: 0px;
-}
-.menu-icon-container{
-  display: inline-block;
-  vertical-align: top;
-  width: 20%;
-}
-
-.menu-item{
-  margin-bottom: 20px;
-}
-
-
-
-
-
+//---------------------------------------
 body {
-  display: flex;
-  justify-content: center;
-  background-image: url("https://farm6.staticflickr.com/5499/30482409785_0fc2258c4f_k.jpg");
-  background-repeat: no-repeat;
 }
 
 .container {
-  background: white;
+  // background: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
   border: 1px solid grey;
-  width: 80%;
+  width: 100%;
+    background-image: url("https://farm6.staticflickr.com/5499/30482409785_0fc2258c4f_k.jpg");
+  background-repeat: no-repeat;
 
+header{
+  background: white;
+}
   .logo-left {
     display: flex;
     justify-content: space-between;
@@ -88,6 +70,13 @@ body {
       width: 100%;
     }
   }
+
+.lower-container{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  background: white;
 
 
   .threeBoxes {
@@ -120,6 +109,11 @@ body {
       border: 1px solid grey;
       width: 300px;
       height: 250px;
+
+      img {
+        max-height: 100px;
+        margin-left: 70px;
+      }
     }
 
     .map {
@@ -142,8 +136,6 @@ body {
       display: flex;
       flex-direction: column;
 
-
-
       .tab-menu{
         display: flex;
       }
@@ -160,11 +152,40 @@ body {
       .menu {
         border: 1px solid grey;
         width: 100%;
+
+        .menu-item{
+          margin-bottom: 20px;
+
+          .item-description{
+            display: inline-block;
+            width: 60%;
+            margin: 0px;
+          }
+        }
+        .menu-icon-container{
+          display: inline-block;
+          vertical-align: top;
+          width: 20%;
+        }
       }
 
       .reservations {
         border: 1px solid grey;
         width: 100%;
+
+        .reserve {
+          padding-left: 20px;
+          display: flex;
+          flex-direction: column;
+
+          .customerInfo {
+            width: 40%;
+          }
+          .submit {
+            margin-top: 20px;
+            margin-bottom: 20px;
+          }
+        }
       }
     }
     .foodPhotos {
@@ -176,34 +197,9 @@ body {
 
       img{
         height: 300px;
+        max-height: 50%;
       }
     }
   }
 }
-
-
-.reserve {
-  padding-left: 20px;
-  display: flex;
-  flex-direction: column;
-  .customerInfo {
-    width: 40%;
-  }
-  .submit {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-}
-
-
-.special-image > img {
-  max-height: 100px;
-  margin-left: 70px;
-}
-
-.foodPhotos {
-  display: flex;
-  .foodPhotos > img {
-    max-height: 50%;
-  }
 }

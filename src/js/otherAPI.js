@@ -1,5 +1,6 @@
 import $ from "jquery";
 import {GMAPS_KEY} from "./keys.js";
+import {getFlickr} from "./flickr.js"
 
 // Map Function
 // ----------------------------------------
@@ -176,6 +177,7 @@ function getSpecial(menuResults){
 			}
 		}
 		populateSpecial(specialItem);
+		getFlickr(5483708730, ".special-image");
 	});
 }
 
