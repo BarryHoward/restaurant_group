@@ -41,7 +41,7 @@ a {
 }
 
 .checked{
-  color: yellow;
+  color: orange;
   box-shadow: 0px 0px 2px #FF0000;
 
 }
@@ -52,9 +52,6 @@ a {
 }
 
 //---------------------------------------
-body {
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -183,24 +180,19 @@ header{
       @include borderShadow();
       padding-left: 2%;
       padding-right: 2%;
-
       .tab-menu{
         padding: 0px;
         display: flex;
         justify-content: flex-start;
-
-
         .tab-button{
           padding: 10px;
           border-bottom: 1px solid lightgrey;
         }
-
         .chosen-tab{
           border: 1px solid lightgrey;
           border-bottom: 0px solid white;
         }
       }
-
       .invisible {
         display: none;
       }
@@ -210,7 +202,6 @@ header{
         line-height: 2;
         font-size: 20px;
       }
-
       .story > img {
         max-height: 300px;
         padding-left: 70px;
@@ -220,7 +211,6 @@ header{
         width: 100%;
         overflow: auto;
         justify-content: space-between;
-
         .course-box {
           display: flex;
           flex-direction: column;
@@ -233,7 +223,7 @@ header{
             text-decoration: underline;
             .price {
               float: right;
-              padding-right: 38%;
+              padding-right: 8%;
             }
             .item-description{
               display: inline-block;
@@ -246,9 +236,10 @@ header{
           display: inline-block;
           vertical-align: top;
           width: 20%;
+          float: right;
         }
       }
-
+      
       .reservations {
         width: 100%;
         .reserve {
