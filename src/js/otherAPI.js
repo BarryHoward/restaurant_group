@@ -52,7 +52,7 @@ function populateMenu(results){
 
 	for (var j=0; j<3; j++){
 		var curKey = keys[j];
-		$(".menu").append(`<div class="course-box" id="${curKey}"}><p>${curKey}</p></div>`);
+		$(".menu").append(`<div class="course-box" id="${curKey}"}><p class = "course-type">${curKey}</p></div>`);
 		for (var i = 0; i < 4; i++){
 			var menuHtml =
 			`	<div class="menu-item" id="${curKey}${i}">
