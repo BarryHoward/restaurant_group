@@ -25,8 +25,12 @@ getFlickr(3360793849, ".foodPhotos");
 $(".tab-button").click(openTab);
 
 var currentOpen = ".story";
+var currentTab = "#story-button";
 function openTab(event){
 	var target = event.target;
+	$(target).toggleClass("chosen-tab");
+	$(`${currentTab}`).toggleClass("chosen-tab");
+	currentTab = '#' + $(target).attr('id');
 	var buttonValue = $(target).attr('id').split("-")[0];
 	if (buttonValue !== currentOpen){
 		$(currentOpen).toggleClass("invisible");
