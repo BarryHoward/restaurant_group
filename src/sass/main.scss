@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   list-style: none;
-  // box-shadow: 2px 2px 4px black;
+  // border: 1px solid black;
 }
 
 @mixin borderShadow(){
@@ -82,7 +82,7 @@ header{
 
   .photo{
     width: 100%;
-    height: 400px;
+    height: 450px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,9 +90,9 @@ header{
     @include borderShadow();
 
     img{
-      width: 95%;
-      height: 90%;
-      box-shadow: 0px 0px 50px black;
+      width: 92%;
+      height: 85%;
+      box-shadow: 1px 1px 10px black;
     }
   }
 
