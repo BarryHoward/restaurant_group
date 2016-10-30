@@ -7,10 +7,18 @@ import {getFlickr} from "./flickr.js"
 
 function addMap(){
 	var key = GMAPS_KEY;
+	var titleHTML = `<p class="map-title three-box-title">Our Location</p>`;
 	var gMapsHTML = `
 	<iframe class="google-map" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJEWSIMvT92IgRSeV6GRY6Xtw&key=${key}" allowfullscreen></iframe>
-`
-	$(".map").html(gMapsHTML);
+	`;
+	var addressHTML = `<div class="map-address">
+						<p>1 Commercial Blvd</p>
+						<p>Lauderdale-By-The-Sea, FL 33308</p>
+						<form action="https://www.google.com/maps/dir//Aruba+Beach+Cafe,+1+Commercial+Blvd,+Lauderdale-By-The-Sea,+FL+33308/@26.1899668,-80.0973211,17z/data=!4m16!1m7!3m6!1s0x88d8fdf432886411:0xdc5e3a16197ae549!2sAruba+Beach+Cafe!3b1!8m2!3d26.189962!4d-80.095127!4m7!1m0!1m5!1m1!1s0x88d8fdf432886411:0xdc5e3a16197ae549!2m2!1d-80.095127!2d26.189962">
+							<button>Directions</button>
+						</form>
+						</div>`
+	$(".map").html(titleHTML+gMapsHTML+addressHTML);
 };
 
 
@@ -26,7 +34,7 @@ function getNews(){
 function populateNews(results){
 	var newsHtml =
 	`
-	<p class="latest-news">Latest News</p>
+	<p class="latest-news three-box-title">Latest News</p>
 	<div class="first-line">
 		<span class="news-title">${results.title}</span><span class="news-date">${results.date_published}</span>
 	</div>
@@ -52,14 +60,18 @@ function populateMenu(results){
 
 	for (var j=0; j<3; j++){
 		var curKey = keys[j];
-		$(".menu").append(`<div class="course-box" id="${curKey}"}><p class = "course-type">${curKey}</p></div>`);
-		for (var i = 0; i < 4; i++){
+		$(".menu").append(`<div class="course-box" id="${curKey}"}><p class="course-type">${curKey}</p></div>`);
+		var courseCount = [3, 4, 2];
+		for (var i = 0; i < courseCount[j]; i++){
 			var menuHtml =
 			`	<div class="menu-item" id="${curKey}${i}">
-					<span>${results[curKey][i].item}</span>
-					<span class = "price">${results[curKey][i].price}</span>
-					<br>
-					<p class="item-description">${results[curKey][i].description}</p>
+					<div class="item-top-line">
+						<span class="item-title">${results[curKey][i].item}</span>
+						<span class="price">${results[curKey][i].price}</span>
+					</div>
+					<div class="item-bottom-container" id="${curKey}${i}-lower">
+						<p class="item-description">${results[curKey][i].description}</p>
+					</div>
 				</div>
 			`
 			$(`#${curKey}`).append(menuHtml);
@@ -67,8 +79,8 @@ function populateMenu(results){
 				makeIconInfo("fa-exclamation", "allergies", results[curKey][i].allergies) +
 				makeIconInfo("fa-star", "favorite", results[curKey][i].favorite) +
 				makeIconInfo("fa-fire-extinguisher", "spicy", results[curKey][i].spicy) +
-				makeIconInfo("fa-vine", "vegan", results[curKey][i].vegan) + "<div";
-			$(`#${curKey}${i}`).append(iconsHtml);
+				makeIconInfo("fa-envira", "vegan", results[curKey][i].vegan) + "<div";
+			$(`#${curKey}${i}-lower`).append(iconsHtml);
 		}
 	}
 };
@@ -77,7 +89,7 @@ function makeIconInfo(iconName, foodParam, value){
 	var colorClass = "";
 	if (foodParam === "allergies"){
 		if (value===1){
-			var titleHTML = "<span>Contains Common Allergens.</span>";
+			var titleHTML = "<span>Contains Common Allergens</span>";
 			var descriptionHTML = "<p>This food has killed people.</p>";
 			colorClass = " black";
 		} else {
@@ -87,7 +99,7 @@ function makeIconInfo(iconName, foodParam, value){
 		var innerHTML = titleHTML + descriptionHTML;
 	} else if (foodParam === "favorite"){
 		if (value===1){
-			var titleHTML = "<span>Local Favorite.</span>";
+			var titleHTML = "<span>Local Favorite</span>";
 			var descriptionHTML = "<p>Tales have been spread of this dish's deliciousness.</p>";
 			colorClass = " orange";
 		} else {
@@ -97,7 +109,7 @@ function makeIconInfo(iconName, foodParam, value){
 		var innerHTML = titleHTML + descriptionHTML;
 	} else if (foodParam === "spicy"){
 		if (value===1){
-			var titleHTML = "<span>Spicy Dish.</span>";
+			var titleHTML = "<span>Spicy Dish</span>";
 			var descriptionHTML = "<p>Might want to wash this down with seawater.</p>";
 			colorClass = " red";
 		} else {
@@ -107,7 +119,7 @@ function makeIconInfo(iconName, foodParam, value){
 		var innerHTML = titleHTML + descriptionHTML;
 	} else if (foodParam === "vegan"){
 		if (value===1){
-			var titleHTML = "<span>Vegan Dish.</span>";
+			var titleHTML = "<span>Vegan Dish</span>";
 			var descriptionHTML = "<p>Mostly composed of Kelp.</p>";
 			colorClass = " green";
 		} else {
@@ -190,11 +202,11 @@ function getSpecial(menuResults){
 
 function populateSpecial(specialItem){
 	var HTML = `
-	<p class="special-title">Today's Special</p>
+	<p class="special-title three-box-title">Today's Special</p>
 	<div class="special-image"></div>
 	<div class = "first-line">
-		<span class = "sp-menu-item">${specialItem.item}</span>
-		<span class = "sp-menu-price">${specialItem.price}</span>
+		<div class = "sp-menu-item">${specialItem.item}</div>
+		<div class = "sp-menu-price">${specialItem.price}</div>
 	</div>
 	<p>${specialItem.description}</p>
 	`
