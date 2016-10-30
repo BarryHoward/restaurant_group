@@ -65,7 +65,7 @@ function populateMenu(results){
 			$(`#${curKey}`).append(menuHtml);
 			var iconsHtml = `<div class="menu-icon-container">` +
 				makeIconInfo("fa-exclamation", "allergies", results[curKey][i].allergies) +
-				makeIconInfo("fa-star-o", "favorite", results[curKey][i].favorite) +
+				makeIconInfo("fa-star", "favorite", results[curKey][i].favorite) +
 				makeIconInfo("fa-fire-extinguisher", "spicy", results[curKey][i].spicy) +
 				makeIconInfo("fa-vine", "vegan", results[curKey][i].vegan) + "<div";
 			$(`#${curKey}${i}`).append(iconsHtml);
@@ -74,47 +74,51 @@ function populateMenu(results){
 };
 
 function makeIconInfo(iconName, foodParam, value){
+	var colorClass = "";
 	if (foodParam === "allergies"){
-		var titleHTML = "<span>Allergy Info</span>";
 		if (value===1){
-			var descriptionHTML = "<p>This food has killed people</p>";
+			var titleHTML = "<span>Contains Common Allergens.</span>";
+			var descriptionHTML = "<p>This food has killed people.</p>";
+			colorClass = " black";
 		} else {
-			var descriptionHTML = "<p>Safe for consumption by landlubbers</p>"
+			var titleHTML = "<span>No major allergens</span>";
+			var descriptionHTML = "<p>Safe for consumption by landlubbers.</p>"
 		}
 		var innerHTML = titleHTML + descriptionHTML;
 	} else if (foodParam === "favorite"){
-		var titleHTML = "<span>Favorite Info</span>";
 		if (value===1){
+			var titleHTML = "<span>Local Favorite.</span>";
 			var descriptionHTML = "<p>Tales have been spread of this dish's deliciousness.</p>";
+			colorClass = " orange";
 		} else {
+			var titleHTML = "<span>Not a favorite</span>";
 			var descriptionHTML = "<p>Nobody likes this dish, but who says you aren't special?</p>"
 		}
 		var innerHTML = titleHTML + descriptionHTML;
 	} else if (foodParam === "spicy"){
-		var titleHTML = "<span>Spicy Info</span>";
 		if (value===1){
-			var descriptionHTML = "<p>Might want to wash this down with seawater</p>";
+			var titleHTML = "<span>Spicy Dish.</span>";
+			var descriptionHTML = "<p>Might want to wash this down with seawater.</p>";
+			colorClass = " red";
 		} else {
-			var descriptionHTML = "<p>Mild food for mild men</p>"
+			var titleHTML = "<span>Mild dish</span>";
+			var descriptionHTML = "<p>Mild food for mild men.</p>"
 		}
 		var innerHTML = titleHTML + descriptionHTML;
 	} else if (foodParam === "vegan"){
-		var titleHTML = "<span>Vegan Info</span>";
 		if (value===1){
-			var descriptionHTML = "<p>Mostly composed of Kelp</p>";
+			var titleHTML = "<span>Vegan Dish.</span>";
+			var descriptionHTML = "<p>Mostly composed of Kelp.</p>";
+			colorClass = " green";
 		} else {
-			var descriptionHTML = "<p>Contains meat, milk, egg, or food of some sort</p>"
+			var titleHTML = "<span>Normal food</span>";
+			var descriptionHTML = "<p>Contains meat, milk, egg, or food of some sort.</p>"
 		}
 		var innerHTML = titleHTML + descriptionHTML;
 	}
-	if (value===1){
-		var colorClass = " checked";
-	} else {
-		var colorClass = "";
-	}
 	var iconHTML = `
-	<i class="fa ${iconName}${colorClass}" aria-hidden="true">
-		<div class="icon-info-box">
+	<i class="fa ${iconName}${colorClass} menu-icon" aria-hidden="true">
+		<div class="icon-info-box ${colorClass}info">
 			${innerHTML}
 		</div>
 	</i>

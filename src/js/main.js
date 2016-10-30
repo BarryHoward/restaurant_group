@@ -14,11 +14,11 @@ populateReservations();
 
 getFlickr(8012453328, ".photo");
 
-getFlickr(8619961752, ".foodPhotos");
-getFlickr(1863297923, ".foodPhotos");
-getFlickr(15100116960, ".foodPhotos");
-getFlickr(15160949480, ".foodPhotos");
-getFlickr(3360793849, ".foodPhotos");
+getFlickr(8619961752, "#food-box-1");
+getFlickr(1863297923, "#food-box-2");
+getFlickr(15100116960, "#food-box-3");
+getFlickr(15160949480, "#food-box-4");
+getFlickr(3360793849, "#food-box-5");
 
 //Click Event for tabs
 
