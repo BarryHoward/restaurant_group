@@ -52,14 +52,18 @@ function populateMenu(results){
 
 	for (var j=0; j<3; j++){
 		var curKey = keys[j];
-		$(".menu").append(`<div class="course-box" id="${curKey}"}><p class = "course-type">${curKey}</p></div>`);
-		for (var i = 0; i < 4; i++){
+		$(".menu").append(`<div class="course-box" id="${curKey}"}><p class="course-type">${curKey}</p></div>`);
+		var courseCount = [3, 4, 2];
+		for (var i = 0; i < courseCount[j]; i++){
 			var menuHtml =
 			`	<div class="menu-item" id="${curKey}${i}">
-					<span>${results[curKey][i].item}</span>
-					<span class = "price">${results[curKey][i].price}</span>
-					<br>
-					<p class="item-description">${results[curKey][i].description}</p>
+					<div class="item-top-line">
+						<span class="item-title">${results[curKey][i].item}</span>
+						<span class="price">${results[curKey][i].price}</span>
+					</div>
+					<div class="item-bottom-container" id="${curKey}${i}-lower">
+						<p class="item-description">${results[curKey][i].description}</p>
+					</div>
 				</div>
 			`
 			$(`#${curKey}`).append(menuHtml);
@@ -68,7 +72,7 @@ function populateMenu(results){
 				makeIconInfo("fa-star", "favorite", results[curKey][i].favorite) +
 				makeIconInfo("fa-fire-extinguisher", "spicy", results[curKey][i].spicy) +
 				makeIconInfo("fa-vine", "vegan", results[curKey][i].vegan) + "<div";
-			$(`#${curKey}${i}`).append(iconsHtml);
+			$(`#${curKey}${i}-lower`).append(iconsHtml);
 		}
 	}
 };
@@ -77,7 +81,7 @@ function makeIconInfo(iconName, foodParam, value){
 	var colorClass = "";
 	if (foodParam === "allergies"){
 		if (value===1){
-			var titleHTML = "<span>Contains Common Allergens.</span>";
+			var titleHTML = "<span>Contains Common Allergens</span>";
 			var descriptionHTML = "<p>This food has killed people.</p>";
 			colorClass = " black";
 		} else {
@@ -87,7 +91,7 @@ function makeIconInfo(iconName, foodParam, value){
 		var innerHTML = titleHTML + descriptionHTML;
 	} else if (foodParam === "favorite"){
 		if (value===1){
-			var titleHTML = "<span>Local Favorite.</span>";
+			var titleHTML = "<span>Local Favorite</span>";
 			var descriptionHTML = "<p>Tales have been spread of this dish's deliciousness.</p>";
 			colorClass = " orange";
 		} else {
@@ -97,7 +101,7 @@ function makeIconInfo(iconName, foodParam, value){
 		var innerHTML = titleHTML + descriptionHTML;
 	} else if (foodParam === "spicy"){
 		if (value===1){
-			var titleHTML = "<span>Spicy Dish.</span>";
+			var titleHTML = "<span>Spicy Dish</span>";
 			var descriptionHTML = "<p>Might want to wash this down with seawater.</p>";
 			colorClass = " red";
 		} else {
@@ -107,7 +111,7 @@ function makeIconInfo(iconName, foodParam, value){
 		var innerHTML = titleHTML + descriptionHTML;
 	} else if (foodParam === "vegan"){
 		if (value===1){
-			var titleHTML = "<span>Vegan Dish.</span>";
+			var titleHTML = "<span>Vegan Dish</span>";
 			var descriptionHTML = "<p>Mostly composed of Kelp.</p>";
 			colorClass = " green";
 		} else {
@@ -193,8 +197,8 @@ function populateSpecial(specialItem){
 	<p class="special-title">Today's Special</p>
 	<div class="special-image"></div>
 	<div class = "first-line">
-		<span class = "sp-menu-item">${specialItem.item}</span>
-		<span class = "sp-menu-price">${specialItem.price}</span>
+		<div class = "sp-menu-item">${specialItem.item}</div>
+		<div class = "sp-menu-price">${specialItem.price}</div>
 	</div>
 	<p>${specialItem.description}</p>
 	`

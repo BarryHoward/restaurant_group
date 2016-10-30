@@ -3,6 +3,7 @@
   list-style: none;
   font-family: 'Poiret One', cursive;
   line-height: 1.6;
+  // border: 1px solid black;
 }
 
 @mixin borderShadow(){
@@ -21,7 +22,7 @@ a {
 //----------------------------------------
 .fa{
   position: relative;
-  border: 1px solid lightgrey;
+  border: 2px solid lightgrey;
   background: white;
   padding: 3px;
   border-radius: 5px;
@@ -35,14 +36,15 @@ a {
     font-weight: bold;
     color: black;
     position: absolute;
-    top: -$i-box-height - 10px;
-    left: -$i-box-width;
+    top: -60px;
+    left: -$i-box-width - 10px;
     z-index: 10;
     background: white;
     display: none;
     height: $i-box-height;
     width: $i-box-width;
     overflow:hidden;
+
 
   }
   .blackinfo{
@@ -126,14 +128,13 @@ a {
 
   width: 100%;
   background-image: url("https://farm6.staticflickr.com/5499/30482409785_0fc2258c4f_k.jpg");
-  background-position: 0% 50%;
+  background-position: 0% 100%;
   background-repeat: no-repeat;
 
 header{
   background: white;
   margin-bottom: 5%;
   width: 100%;
-}
   .header-top {
     padding: 10px;
     display: flex;
@@ -163,9 +164,9 @@ header{
       box-shadow: 0px 0px 50px black;
     }
   }
-
+}
 .lower-container{
-  width: 80%;
+  width: 85%;
   display: flex;
   flex-direction: column;
   background: transparent;
@@ -174,10 +175,12 @@ header{
     display: flex;
     justify-content: space-between;
 
+
+    $three-box-height: 350px;
     .news {
       padding: 2%;
-      width: 300px;
-      height: 300px;
+      width: 30%;
+      height: $three-box-height;
       display: flex;
       background: white;
       flex-direction: column;
@@ -194,7 +197,7 @@ header{
       }
       .news-post {
         display: -webkit-box;
-        -webkit-line-clamp: 6;
+        -webkit-line-clamp: 9;
         -webkit-box-orient: vertical;
         overflow: hidden;
         margin-bottom: 0px;
@@ -202,15 +205,20 @@ header{
     }
     .special {
       padding: 2%;
-      width: 300px;
-      height: 300px;
+      width: 30%;
+      height: $three-box-height;
       background: white;
       @include borderShadow();
       display: flex;
       flex-direction: column;
-      img {
-        max-height: 100px;
-        margin-left: 70px;
+      align-items: center;
+
+      .special-image{
+        width: 60%;
+
+        img{
+          width: 100%;
+        }
       }
       .special-title {
         text-align: center;
@@ -218,6 +226,7 @@ header{
         margin-top: 0px;
       }
       .first-line {
+        width: 100%;
         display: flex;
         justify-content: space-between;
       }
@@ -227,8 +236,8 @@ header{
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 300px;
-      height: 300px;
+      width: 30%;
+      height: $three-box-height;
       background: white;
       @include borderShadow();
 
@@ -242,9 +251,10 @@ header{
   section {
     display: flex;
     justify-content: space-between;
-    height: 1000px;
+    height: 1075px;
     margin-top: 5%;
     margin-bottom: 5%;
+
 
     .tabs {
       width: 75%;
@@ -253,81 +263,111 @@ header{
       background: transparent;
 
       .tab-menu{
-        padding: 0px;
+        margin: 0px;
+        display: block;
+        padding: 5px 0px;
         display: flex;
         justify-content: flex-start;
+        z-index: 10;
 
         .tab-button{
           background: white;
           padding: 10px;
-          border-bottom: 1px solid lightgrey;
+          font-size: 14pt;
+          border-bottom: 1px solid grey;
+        }
+
+        #story-button{
+          border-right: 1px solid grey;
+        }
+        #menu-button{
+          border-right: 1px solid grey;
         }
 
         .chosen-tab{
-          border: 1px solid lightgrey;
-          border-bottom: 0px solid white;
+          border-bottom: none;
         }
       }
       .invisible {
         display: none;
       }
 
+      $padding-top: 10px;
       .story {
         width: 100%;
         line-height: 2;
         font-size: 20px;
         padding: 2%;
+        padding-top: $padding-top;
         background: white;
         @include borderShadow();
-      }
-      .story > img {
-        width: 100%;
-        margin-left: auto;
+
+        img {
+          width: 100%;
+          margin-left: auto;
+        }
       }
 
       .menu {
         background: white;
         width: 100%;
-        overflow: auto;
+        overflow-y: scroll;
         padding: 2%;
+        padding-top: $padding-top;
         @include borderShadow();
 
         .course-box {
           display: flex;
           flex-direction: column;
+
           .course-type {
-            margin-top: 0px;
+            margin-top: 10px;
             font-weight: bold;
             font-size: 24px;
+            margin-bottom: 10px;
           }
           .menu-item{
             margin-bottom: 20px;
-            text-decoration: underline;
-            .price {
-              float: right;
-              padding-right: 8%;
+
+
+            .item-top-line{
+              display: flex;
+              justify-content: space-between;
+
+              .item-title{
+                text-decoration: underline;                
+              }
+            }
+            
+            .item-bottom-container{
+              display: flex;
+              justify-content: space-between;
             }
             .item-description{
               display: inline-block;
               font-size: 10pt;
-              width: 60%;
+              width: 80%;
               margin: 0px;
+            }
+
+            .menu-icon-container{
+              display: inline-block;
+              padding-top: 5px;
+              vertical-align: top;
+              width: 110px;
             }
           }
         }
-        .menu-icon-container{
-          display: inline-block;
-          vertical-align: top;
-          width: 20%;
-          float: right;
-        }
+
       }
       
       .reservations {
         width: 100%;
         background: white;
+
         .reserve {
-          padding-left: 20px;
+          padding: 2%;
+          padding-top: $padding-top;
           display: flex;
           flex-direction: column;
           @include borderShadow();
