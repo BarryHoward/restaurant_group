@@ -305,9 +305,9 @@ header{
         }
         button{
           margin-top: 10px;
-          background: #A3CCFF;
+          background: #B3DCFF;
           border-radius: 5px;
-          border: 1px solid black;
+          border: 1px solid grey;
 
         }
       }
@@ -341,6 +341,7 @@ header{
           padding: 10px;
           font-size: 14pt;
           border-bottom: 1px solid grey;
+          cursor: pointer;
         }
 
         #story-button{
