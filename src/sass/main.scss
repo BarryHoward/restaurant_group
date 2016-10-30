@@ -9,6 +9,10 @@
   box-shadow: 4px 4px 8px black;
 }
 
+body{
+  width: 100%;
+}
+
 a {
   text-decoration: none;
 }
@@ -16,7 +20,6 @@ a {
 //Font Awesome Styling
 //----------------------------------------
 .fa{
-  color: black;
   position: relative;
   border: 1px solid lightgrey;
   background: white;
@@ -24,27 +27,91 @@ a {
   border-radius: 5px;
 
   $i-box-height: 100px;
-  $i-box-width: 200px;
+  $i-box-width: 250px;
   .icon-info-box{
-    border: 1px solid lightgrey;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 2px 10px;
+    font-weight: bold;
+    color: black;
     position: absolute;
-    top: -$i-box-height;
-    right: -$i-box-width;
+    top: -$i-box-height - 10px;
+    left: -$i-box-width;
     z-index: 10;
     background: white;
     display: none;
     height: $i-box-height;
-    overflow:hidden;
     width: $i-box-width;
+    overflow:hidden;
 
+  }
+  .blackinfo{
+    background: black;
+    color: white;
+  }
+  .orangeinfo{
+    background: orange;
+    color: white;
+  }  
+  .redinfo{
+    background: red;
+    color: white;
+  }
+  .greeninfo{
+    background: green;
+    color: white;
+  }  
+}
+
+.top-icon{
+  color: black;
+}
+
+.menu-icon{
+  color: grey;
+}
+
+.black{
+  color: white;
+  background: black;
+  border: 2px solid black;
+  &:hover{
+    color: black;
+    background: white;
   }
 }
 
-.checked{
-  color: orange;
-  box-shadow: 0px 0px 2px #FF0000;
 
+.orange{
+  color: white;
+  background: orange;
+  border: 2px solid orange;
+  &:hover{
+    color: orange;
+    background: white;
+  }
 }
+
+.red{
+  color: white;
+  background: red;
+  border: 2px solid red;
+  &:hover{
+    color: red;
+    background: white;
+  }
+}
+
+.green{
+  color: white;
+  background: green;
+  border: 2px solid green;
+  &:hover{
+    color: green;
+    background: white;
+  }
+}
+
 .fa:hover{
   .icon-info-box{
     display: block;
@@ -59,22 +126,24 @@ a {
 
   width: 100%;
   background-image: url("https://farm6.staticflickr.com/5499/30482409785_0fc2258c4f_k.jpg");
+  background-position: 0% 50%;
   background-repeat: no-repeat;
 
 header{
   background: white;
   margin-bottom: 5%;
+  width: 100%;
 }
   .header-top {
     padding: 10px;
     display: flex;
     justify-content: space-between;
     width: 100%;
-
+    height: 150px;
     background-image: url("http://www.freewebheaders.com/wordpress/wp-content/gallery/clouds-sky/clouds-sky-header-2065-1024x300.jpg");
     background-size: 100% 300px;
     background-position: 0% 100%;
-    height: 100px;
+
   }
 
   .photo{
@@ -83,13 +152,15 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/wooden.jpg");
-    @include borderShadow();
+    background-image: url("../images/newWooden.jpg");
+    background-size: 50%;
+
+    box-shadow: 0px 5px 50px black;
 
     img{
-      width: 92%;
+      width: 850px;
       height: 85%;
-      box-shadow: 1px 1px 10px black;
+      box-shadow: 0px 0px 50px black;
     }
   }
 
@@ -101,19 +172,21 @@ header{
 
   .threeBoxes {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 
     .news {
-      padding: 1%;
+      padding: 2%;
       width: 300px;
       height: 300px;
       display: flex;
       background: white;
       flex-direction: column;
       @include borderShadow();
+
       .latest-news {
         text-align: center;
         text-decoration: underline;
+        margin-top: 0px;
       }
       .first-line {
         display: flex;
@@ -124,10 +197,11 @@ header{
         -webkit-line-clamp: 6;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        margin-bottom: 0px;
       }
     }
     .special {
-      padding: 1%;
+      padding: 2%;
       width: 300px;
       height: 300px;
       background: white;
@@ -141,6 +215,7 @@ header{
       .special-title {
         text-align: center;
         text-decoration: underline;
+        margin-top: 0px;
       }
       .first-line {
         display: flex;
@@ -166,28 +241,28 @@ header{
 
   section {
     display: flex;
-    justify-content: space-around;
-    height: 800px;
+    justify-content: space-between;
+    height: 1000px;
     margin-top: 5%;
     margin-bottom: 5%;
-       @include borderShadow();
 
     .tabs {
-      width: 90%;
+      width: 75%;
       display: flex;
       flex-direction: column;
-      background: white;
-      @include borderShadow();
-      padding-left: 2%;
-      padding-right: 2%;
+      background: transparent;
+
       .tab-menu{
         padding: 0px;
         display: flex;
         justify-content: flex-start;
+
         .tab-button{
+          background: white;
           padding: 10px;
           border-bottom: 1px solid lightgrey;
         }
+
         .chosen-tab{
           border: 1px solid lightgrey;
           border-bottom: 0px solid white;
@@ -201,20 +276,27 @@ header{
         width: 100%;
         line-height: 2;
         font-size: 20px;
+        padding: 2%;
+        background: white;
+        @include borderShadow();
       }
       .story > img {
-        max-height: 300px;
-        padding-left: 70px;
+        width: 100%;
+        margin-left: auto;
       }
 
       .menu {
+        background: white;
         width: 100%;
         overflow: auto;
-        justify-content: space-between;
+        padding: 2%;
+        @include borderShadow();
+
         .course-box {
           display: flex;
           flex-direction: column;
           .course-type {
+            margin-top: 0px;
             font-weight: bold;
             font-size: 24px;
           }
@@ -227,6 +309,7 @@ header{
             }
             .item-description{
               display: inline-block;
+              font-size: 10pt;
               width: 60%;
               margin: 0px;
             }
@@ -242,10 +325,12 @@ header{
       
       .reservations {
         width: 100%;
+        background: white;
         .reserve {
           padding-left: 20px;
           display: flex;
           flex-direction: column;
+          @include borderShadow();
           .info {
             font-weight: bold;
           }
@@ -268,11 +353,18 @@ header{
       flex-direction: column;
       width: 20%;
       height: 100%;
-      justify-content: flex-start;
-      margin-left: 3%;
+      justify-content: space-between;
 
-      img{
-        height: 20%;
+      .food-pic-box{
+        height: 18%;
+        padding: 5px;
+        background: white;
+        @include borderShadow();
+
+        img{
+          height: 100%;
+          width: 100%;
+        }
       }
     }
   }
