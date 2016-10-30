@@ -16,6 +16,7 @@ body{
 
 a {
   text-decoration: none;
+  color: black;
 }
 
 //Font Awesome Styling
@@ -67,10 +68,39 @@ a {
 
 .top-icon{
   color: black;
+  border: none;
+  background: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  &:hover{
+    box-shadow: 0px 0px 20px orange;
+    background: orange;
+    color: white;
+  }
 }
+
+.fa-facebook{
+  background: #004DB3;
+  color: white;
+}
+
+.fa-twitter{
+  background: #5791D8;
+  color: white;
+}
+
+.fa-yelp{
+  color: #BF2E1B;
+}
+
+
 
 .menu-icon{
   color: grey;
+  &:hover{
+    cursor: help;
+  }
 }
 
 .black{
@@ -138,12 +168,31 @@ header{
   .header-top {
     padding: 10px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 150px;
     background-image: url("http://www.freewebheaders.com/wordpress/wp-content/gallery/clouds-sky/clouds-sky-header-2065-1024x300.jpg");
     background-size: 100% 300px;
     background-position: 0% 100%;
+
+    .logo{
+      height: 90%;
+      width: 180px;
+      margin-left: 80px;
+      margin-right: 80px;
+      &:hover{
+        box-shadow: 0px 0px 20px orange;
+      }
+
+    }
+    .social-icon{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border-radius: 5px;
+    }
+
 
   }
 
@@ -175,7 +224,11 @@ header{
     display: flex;
     justify-content: space-between;
 
-
+    .three-box-title{
+        text-align: center;
+        text-decoration: underline;
+        margin-top: 0px;
+    }
     $three-box-height: 350px;
     .news {
       padding: 2%;
@@ -186,11 +239,7 @@ header{
       flex-direction: column;
       @include borderShadow();
 
-      .latest-news {
-        text-align: center;
-        text-decoration: underline;
-        margin-top: 0px;
-      }
+
       .first-line {
         display: flex;
         justify-content: space-between;
@@ -216,14 +265,11 @@ header{
       .special-image{
         width: 60%;
 
+
         img{
           width: 100%;
+          border: 1px solid lightgrey;
         }
-      }
-      .special-title {
-        text-align: center;
-        text-decoration: underline;
-        margin-top: 0px;
       }
       .first-line {
         width: 100%;
@@ -233,8 +279,9 @@ header{
     }
 
     .map {
+      padding: 2%;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       width: 30%;
       height: $three-box-height;
@@ -242,8 +289,27 @@ header{
       @include borderShadow();
 
       .google-map {
-        width: 80%;
-        height: 80%;
+        width: 90%;
+        height: 60%;
+      }
+      .map-address{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        p{
+          display: flex;
+          justify-content: center;
+          margin-top: 5px;
+          margin-bottom: 0px;
+        }
+        button{
+          margin-top: 10px;
+          background: #A3CCFF;
+          border-radius: 5px;
+          border: 1px solid black;
+
+        }
       }
     }
   }
@@ -333,9 +399,13 @@ header{
             .item-top-line{
               display: flex;
               justify-content: space-between;
+              padding-bottom: 5px;
 
               .item-title{
                 text-decoration: underline;                
+              }
+              .price{
+                padding-right: 5px;
               }
             }
             
@@ -348,13 +418,16 @@ header{
               font-size: 10pt;
               width: 80%;
               margin: 0px;
+              padding-right: 2%;
+              border-right: 2px solid lightgrey;
             }
 
             .menu-icon-container{
-              display: inline-block;
-              padding-top: 5px;
-              vertical-align: top;
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
               width: 110px;
+
             }
           }
         }

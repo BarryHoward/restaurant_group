@@ -7,10 +7,18 @@ import {getFlickr} from "./flickr.js"
 
 function addMap(){
 	var key = GMAPS_KEY;
+	var titleHTML = `<p class="map-title three-box-title">Our Location</p>`;
 	var gMapsHTML = `
 	<iframe class="google-map" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJEWSIMvT92IgRSeV6GRY6Xtw&key=${key}" allowfullscreen></iframe>
-`
-	$(".map").html(gMapsHTML);
+	`;
+	var addressHTML = `<div class="map-address">
+						<p>1 Commercial Blvd</p>
+						<p>Lauderdale-By-The-Sea, FL 33308</p>
+						<form action="https://www.google.com/maps/dir//Aruba+Beach+Cafe,+1+Commercial+Blvd,+Lauderdale-By-The-Sea,+FL+33308/@26.1899668,-80.0973211,17z/data=!4m16!1m7!3m6!1s0x88d8fdf432886411:0xdc5e3a16197ae549!2sAruba+Beach+Cafe!3b1!8m2!3d26.189962!4d-80.095127!4m7!1m0!1m5!1m1!1s0x88d8fdf432886411:0xdc5e3a16197ae549!2m2!1d-80.095127!2d26.189962">
+							<button>Directions</button>
+						</form>
+						</div>`
+	$(".map").html(titleHTML+gMapsHTML+addressHTML);
 };
 
 
@@ -26,7 +34,7 @@ function getNews(){
 function populateNews(results){
 	var newsHtml =
 	`
-	<p class="latest-news">Latest News</p>
+	<p class="latest-news three-box-title">Latest News</p>
 	<div class="first-line">
 		<span class="news-title">${results.title}</span><span class="news-date">${results.date_published}</span>
 	</div>
@@ -71,7 +79,7 @@ function populateMenu(results){
 				makeIconInfo("fa-exclamation", "allergies", results[curKey][i].allergies) +
 				makeIconInfo("fa-star", "favorite", results[curKey][i].favorite) +
 				makeIconInfo("fa-fire-extinguisher", "spicy", results[curKey][i].spicy) +
-				makeIconInfo("fa-vine", "vegan", results[curKey][i].vegan) + "<div";
+				makeIconInfo("fa-envira", "vegan", results[curKey][i].vegan) + "<div";
 			$(`#${curKey}${i}-lower`).append(iconsHtml);
 		}
 	}
@@ -194,7 +202,7 @@ function getSpecial(menuResults){
 
 function populateSpecial(specialItem){
 	var HTML = `
-	<p class="special-title">Today's Special</p>
+	<p class="special-title three-box-title">Today's Special</p>
 	<div class="special-image"></div>
 	<div class = "first-line">
 		<div class = "sp-menu-item">${specialItem.item}</div>
