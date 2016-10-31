@@ -74,7 +74,7 @@ a {
   padding: 10px;
   border-radius: 10px;
   &:hover{
-    box-shadow: 0px 0px 20px orange;
+    box-shadow: 0px 0px 50px orange;
     background: orange;
     color: white;
   }
@@ -208,7 +208,7 @@ header{
     box-shadow: 0px 5px 50px black;
 
     img{
-      width: 850px;
+      width: 85%;
       height: 85%;
       box-shadow: 0px 0px 50px black;
     }

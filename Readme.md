@@ -18,6 +18,11 @@ Group Responsibilities:
 	Barry:  FlickrAPI; News, Special, and Map box; Icons(social media and menu info); CSS Styling
 	Liliya: OurStory, Menu, and Reservations box; HTML structuring; CSS Styling
 
+Notes:
+	Resizing works relatively well.  Not-enough time to implement designs for mobile and tablets.
+	Was able to complete the spiffy hover effects on all the icons, and the directions button actually
+	links correctly to the real restaurant.  
+
 
 Files:
 
