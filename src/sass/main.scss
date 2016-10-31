@@ -176,13 +176,16 @@ header{
     background-size: 100% 300px;
     background-position: 0% 45%;
 
-    .logo{
+    .logo-box{
       height: 90%;
-      width: 180px;
       margin-left: 80px;
       margin-right: 80px;
       &:hover{
         box-shadow: 0px 0px 20px orange;
+      }
+      img{
+        width: 180px;
+        height: 100%;
       }
 
     }
